@@ -1,0 +1,14 @@
+---
+- name: Configure DevOps Server
+  hosts: servers
+  become: yes
+
+  tasks:
+    - name: Install Docker
+      command: yum install -y docker
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
